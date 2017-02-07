@@ -1,0 +1,31 @@
+<h1>Dashboard</h1>
+
+<div class="row">
+  <div class="col col-md-6">
+    <div class="form-group">
+      <input class="form-control"
+             type="string"
+             name="url"
+             ng-model="vc.url"
+             placeholder="URL" />
+    </div>
+  </div>
+  <div class="col col-md-2">
+    <div class="btn btn-primary" ng-click="vc.paletteForUrl(vc.url)">Submit</div>
+  </div>
+  <div class="col col-md-4">
+    <div class="btn btn-info" ng-click="vc.addRandomImages(1)">Random (1)</div>
+    <div class="btn btn-info" ng-click="vc.addRandomImages(30)">Random (30)</div>
+  </div>
+</div>
+
+<div class="section">
+  <div ng-repeat="(url, colors) in vc.images" class="image">
+    <div class="thumb" ng-style="{'background-image': 'url(\'{{url}}\')'}"></div>
+    <div ng-repeat="color in colors"
+         class="colorBox"
+         ng-style="{'background-color': '{{color}}'}"
+         title="color"></div>
+
+  </div>
+</div>

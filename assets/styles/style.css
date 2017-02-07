@@ -1,0 +1,27 @@
+
+.image {
+    display: inline-block;
+    padding: 5px;
+}
+
+.thumb {
+    height: 200px;
+    width:  200px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.colorBox {
+    display: inline-block;
+    background-color: grey;
+    width: 35px;
+    height: 35px;
+    border: 0;
+    margin: 2px;
+
+}
