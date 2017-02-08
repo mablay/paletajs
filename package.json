@@ -26,6 +26,7 @@
     "request-promise": "^4.1.1",
     "sails": "~0.12.11",
     "sails-disk": "~0.10.9",
+    "sails-hook-autoreload": "^0.13.2",
     "unsplash-js": "^4.5.0"
   },
   "scripts": {

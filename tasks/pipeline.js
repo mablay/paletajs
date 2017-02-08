@@ -26,6 +26,8 @@ var cssFilesToInject = [
 // (uses Grunt-style wildcard/glob/splat expressions)
 var jsFilesToInject = [
 
+  // Sails
+  '/js/lib/sails.io.js',
 
   // Angular
   '/bower_components/jquery/dist/jquery.js',

@@ -17,6 +17,11 @@
 module.exports = function(grunt) {
 
   grunt.config.set('watch', {
+    api: {
+
+      // API files to watch:
+      files: ['api/**/*', '!**/node_modules/**']
+    },
     assets: {
 
       // Assets to watch:
@@ -24,6 +29,9 @@ module.exports = function(grunt) {
 
       // When assets are changed:
       tasks: ['syncAssets' , 'linkAssets' ]
+    },
+    options: {
+      livereload: true
     }
   });
 

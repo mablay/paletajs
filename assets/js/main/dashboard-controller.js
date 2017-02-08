@@ -1,5 +1,5 @@
 
-angular.module('paletaApp').controller('DashboardCtrl', ['Image', '$localStorage', function(Image, $localStorage) {
+angular.module('paletaApp').controller('DashboardCtrl', ['Image', '$localStorage', '$scope', function(Image, $localStorage, $scope) {
 
   console.log('[DashboardCtrl] Init');
 
@@ -17,7 +17,7 @@ angular.module('paletaApp').controller('DashboardCtrl', ['Image', '$localStorage
       console.log('[PaletteForUrl] %s', url);
       Image.postUrl({url: url}).$promise
         .then(colors => {
-          console.log('[Palete] colors %s', JSON.stringify(colors, null, 4));
+          console.log('[Palete] colors %s', colors.join(', '));
           $localStorage.images[url] = colors;
           resolve({
             url: url,
@@ -33,11 +33,17 @@ angular.module('paletaApp').controller('DashboardCtrl', ['Image', '$localStorage
     Image.createRandom({count: count}).$promise.then(images => {
       images.reduce((p, image)=>{
         var url = image.urls.thumb;
-        console.log('[RandomImages] %s', url);
+        //console.log('[RandomImages] %s', url);
         return p.then(()=>vc.paletteForUrl(url));
       }, Promise.resolve());
       //this.paletteForUrl(url);
     });
+  };
+
+  vc.clearImages = function clearImages(count) {
+    console.log('[clearImages] Removing all images from local storage');
+    $localStorage.images = {};
+    vc.images = $localStorage.images;
   };
 
 }]);
