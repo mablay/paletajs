@@ -11,6 +11,16 @@ Website that shows color palette for uploaded images.
     npm install
     bower install
 
+Create `config/local.js` and enter your unsplash credentials
+
+    module.exports.unsplash = {
+	  applicationId: '...',
+	  secret: '...',
+	  callbackUrl: ''
+    };
+
+
+
 ## Run    
     npm start
 
